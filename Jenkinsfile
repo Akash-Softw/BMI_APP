@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', uro: 'https://github.com/Akash-Softw/BMI_APP.git'  // Replace with your GitHub repo URL
+                git branch: 'main', url: 'https://github.com/Akash-Softw/BMI_APP.git'  // Replace with your GitHub repo URL
             }
         }
 
