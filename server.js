@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+app.us(cors());
 app.use(bodyParser.json());
 app.use(express.static('public')); // Serve static files, if any
 app.set('view engine', 'ejs');
