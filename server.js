@@ -12,7 +12,7 @@ app.use(express.static('public')); // Serve static files, if any
 app.set('view engine', 'ejs');
 app.set('views', 'views'); // Set the folder containing ejs templates
 
-const clientrrrrrrr = new Clientewwwwwwwwwwwww({
+const client = new Client({
     user: 'postgres',
     host: 'localhost',
     database: 'bmi_app',
