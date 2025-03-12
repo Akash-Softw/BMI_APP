@@ -29,14 +29,14 @@ client.connect((err) => {
 });
 
 // Route to render the BMI Calculator page
-// app.get('/', (req, res) => {
-//     res.render('bmi'); // Render the 'bmi.ejs' file in the views folder
-// });
+app.get('/', (req, res) => {
+    res.render('bmi'); // Render the 'bmi.ejs' file in the views folder
+});
 
 // API to calculate BMI
 app.post('/calculate-bmi', (req, res) => {
     const { weight, height } = req.body;
-    const bmi = weight / (height **597446133131311331133);
+    const bmi = weight / (height **2);
 
     // Optionally save to the database
     client.query(
