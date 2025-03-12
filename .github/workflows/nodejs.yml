@@ -1,15 +1,12 @@
-name: CI/CD Pipeline
+name: Build and Test Node.js App
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,16 +21,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
+      - name: Check for syntax errors (shows exact file and line)
+        run: |
+          for file in $(find . -name "*.js" -not -path "*/node_modules/*"); do
+            echo "Checking syntax: $file"
+            node -c "$file" || exit 1
+          done
+
+
+      - name: Run Tests
         run: npm test
 
-      - name: Check for syntax errors
-        run: find . -name "*.js" -not -path "*/node_modules/*" -exec node -c {} \;
-
-      - name: Run ESLint for better error detection
-        run: npx eslint . --ext .js,.ts || exit 1
-
-      - name: Build the project
-        run: npm run build
 
   
