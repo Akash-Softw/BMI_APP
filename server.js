@@ -6,13 +6,13 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.us(cors());
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public')); // Serve static files, if any
 app.set('view engine', 'ejs');
 app.set('views', 'views'); // Set the folder containing ejs templates
 
-const client = new Client({
+const clientrrrrrrr = new Clientewwwwwwwwwwwww({
     user: 'postgres',
     host: 'localhost',
     database: 'bmi_app',
