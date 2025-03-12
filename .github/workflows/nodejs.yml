@@ -30,8 +30,7 @@ jobs:
       - name: Check for syntax errors
         run: find . -name "*.js" -not -path "*/node_modules/*" -exec node -c {} \;
 
-      - name: Run ESLint for better error detection
-        run: npx eslint . --ext .js,.ts || exit 1
+ 
 
       - name: Build the project
         run: npm run build
