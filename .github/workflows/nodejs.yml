@@ -34,7 +34,11 @@ jobs:
 
       - name: Build the project
         run: npm run build
-
+      
+      - name: Build and Docker image and Run
+        run: |
+             docker build -t bmi_app .
+             docker run -d -p 9000:3000 --name container_run_node  bmi_app
 
 
 
@@ -49,12 +53,10 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
  
-      # - name: Build and push Docker image
-      #   run: |
-      #       docker build -t bmi_app .
-      #       docker run -d -p 9000:3000 --name container_run_node  bmi_app
-      #       docker tag bmi_app  akash2998/bmi_app
-      #       docker push akash2998/bmi_app
+      - name: Build and push Docker image
+        run: |
+           docker tag bmi_app  akash2998/bmi_app
+           docker push akash2998/bmi_app
 
 
           
