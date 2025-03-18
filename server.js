@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 const { Client } = require('pg');
 const cors = require('cors');
 
+
+const logger = require('./logger'); 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -54,4 +57,17 @@ app.post('/calculate-bmi', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
+    logger.info(`Server started on port ${PORT}`)
 });
+
+
+
+
+
+
+app.get('/', (req, res) => {
+  logger.info('Root route accessed');
+  res.send('Hello, ELK!');
+});
+
+
